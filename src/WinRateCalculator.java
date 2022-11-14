@@ -12,9 +12,10 @@ public class WinRateCalculator {
         this.losses = losses;
         this.games = wins+losses;
     }
-
-    public String process(String choice)
-    {}
+    public String toString()
+    {
+        return "wins = " + wins + "\nlosses = " + losses;
+    }
 
     public void updateWins(int wins)
     {
@@ -30,7 +31,7 @@ public class WinRateCalculator {
     {
         this.WinRate = WinRate;
     }
-    public double calculateWinRate(int wins, int losses)
+    public double calculateWinRate()
     {
         double WinRate = ((double)((int)((((double)wins/(wins + losses))+.005)*100)))/100;
         return WinRate;
@@ -68,12 +69,13 @@ public class WinRateCalculator {
         {
             return "On average, you will win " + (avgWins-avgLosses) + " times more than lose over the next " + games + " games.";
         }
-        if (wins > avgWins)
+        if (avgLosses > avgWins)
         {
-            return ")";
+            return "On average, you will lose " + (avgLosses-avgWins) + " times more than win over the next " + games + " games.";
         }
-        else {
-            return "";
+        else
+        {
+            return "On average, you will win as many times as you will lose over the next " + games + " games.";
         }
     }
 }
