@@ -10,7 +10,6 @@ public class WinRateCalculatorRunner {
         System.out.print("How many loses do you have?");
         int losses = parseInt(s.nextLine());
         WinRateCalculator calc1 = new WinRateCalculator(wins, losses);
-        calc1.toString();
         String input = "";
         while(!input.equals("q"))
         {
@@ -25,7 +24,7 @@ public class WinRateCalculatorRunner {
             input = s.nextLine();
             if(input.equals("t"))
             {
-                System.out.println(calc1.toString());
+                System.out.println(calc1);
             }
             else if(input.equals("w"))
             {
