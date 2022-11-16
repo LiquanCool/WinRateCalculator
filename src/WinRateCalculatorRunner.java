@@ -14,10 +14,10 @@ public class WinRateCalculatorRunner {
         while(!input.equals("q"))
         {
             System.out.println("What would you like me to do?\n" +
-                    "To see your wins and losses, enter t\n" +
                     "To change wins, enter w\n" +
                     "To change losses, enter l\n" +
                     "To calculate win rate, enter c\n" +
+                    "To see your stats, enter t (calculate your win rate first!)\n" +
                     "To simulate 100 games with your stats, enter s (requires win rate to be calculated first!)\n" +
                     "To estimate on average how many games you will win over x amount of games, enter a (requires win rate to be calculated first!)\n" +
                     "To stop the program, enter q");
@@ -39,16 +39,16 @@ public class WinRateCalculatorRunner {
             else if(input.equals("c"))
             {
                 calc1.updateWinRate(calc1.calculateWinRate());
-                System.out.println("Win rate calculated!");
+                System.out.println("Calculated! Win rate: " + calc1.percentWinRate() + "%");
             }
             else if(input.equals("s"))
             {
-                calc1.simulateGames();
+                System.out.println(calc1.simulateGames());
             }
             else if(input.equals("a"))
             {
                 System.out.println("Over how many games do you want to find the average wins?");
-                calc1.avgWinsOver(parseInt(s.nextLine()));
+                System.out.println(calc1.avgWinsOver(parseInt(s.nextLine())));
             }
             else
             {
