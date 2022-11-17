@@ -5,18 +5,17 @@ public class WinRateCalculatorRunner {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         System.out.println("Welcome to the Win Rate Calculator!");
-        System.out.print("How many wins do you have?");
+        System.out.println("How many wins do you have? (type a number)");
         int wins = parseInt(s.nextLine());
-        System.out.print("How many loses do you have?");
+        System.out.println("How many loses do you have? (type a number)");
         int losses = parseInt(s.nextLine());
         WinRateCalculator calc1 = new WinRateCalculator(wins, losses);
         String input = "";
         while(!input.equals("q"))
         {
             System.out.println("What would you like me to do?\n" +
-                    "To change wins, enter w\n" +
-                    "To change losses, enter l\n" +
                     "To calculate win rate, enter c\n" +
+                    "To change wins or losses, enter either w or l\n\n" +
                     "To see your stats, enter t (calculate your win rate first!)\n" +
                     "To simulate 100 games with your stats, enter s (requires win rate to be calculated first!)\n" +
                     "To estimate on average how many games you will win over x amount of games, enter a (requires win rate to be calculated first!)\n" +
@@ -50,11 +49,14 @@ public class WinRateCalculatorRunner {
                 System.out.println("Over how many games do you want to find the average wins?");
                 System.out.println(calc1.avgWinsOver(parseInt(s.nextLine())));
             }
+            else if(input.equals("q"))
+            {
+                System.out.println("See you next time!");
+            }
             else
             {
                 System.out.println("Please enter one of the options or q to quit.");
             }
         }
-        System.out.println("See you next time!");
     }
 }

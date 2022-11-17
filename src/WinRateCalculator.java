@@ -31,7 +31,7 @@ public class WinRateCalculator {
      */
     public String toString()
     {
-        return "wins = " + wins + "\nlosses = " + losses + "\nwin rate: " + WinRate;
+        return "games: " + games + "\nwins: " + wins + "\nlosses: " + losses + "\nwin rate: " + percentWinRate() + "%";
     }
 
     /**
@@ -65,15 +65,31 @@ public class WinRateCalculator {
     {
         this.WinRate = WinRate;
     }
+
+    /**
+     * The calculateWinRate method will calculate the win rate and round it to the nearest hundredths
+     * @return returns the win rate that is calculated in terms of probability
+     *
+     */
     public double calculateWinRate()
     {
         double WinRate = ((double)((int)((((double)wins/(wins + losses))+.005)*100)))/100;
         return WinRate;
     }
+
+    /**
+     * The percentWinRate method will convert the win rate to percentage
+     * @return returns the win rate in percentage
+     */
     public int percentWinRate()
     {
         return (int)(WinRate*100);
     }
+
+    /**
+     * The simulateGames method will simulate the user's stats and tell them how they did, compared to the simulation
+     * @return returns a string with a comparison of the user's stats to the simulation's stats
+     */
     public String simulateGames()
     {
         int simWins = 0;
@@ -84,7 +100,6 @@ public class WinRateCalculator {
                 simWins++;
             }
         }
-        int simLosses = games - simWins;
         if (simWins > wins)
         {
             return "Unlucky, compared to a simulation of your stats, you won " + (simWins-wins) + " less times.";
@@ -98,6 +113,12 @@ public class WinRateCalculator {
             return "You are average compared to a simulation of your stats, you won the same amount of times.";
         }
     }
+
+    /**
+     * The avgWinsOver method will calculate on average how more wins than losses over the next inputted games amount of games
+     * @param games represents the amount of games to find on average how many more wins over losses
+     * @return returns a string that compares the average amount of wins and losses over the next games amount of games.
+     */
     public String avgWinsOver(int games)
     {
         int avgWins = (int)((games*WinRate)+0.5);
