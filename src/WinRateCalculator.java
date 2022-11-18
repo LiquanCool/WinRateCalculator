@@ -1,5 +1,3 @@
-import java.awt.event.WindowStateListener;
-
 /**
  * The WinRateCalculator represents a Person's stats. The stats include wins, losses, and WinRate.
  */
