@@ -102,11 +102,11 @@ public class WinRateCalculator {
         }
         if (simWins > wins)
         {
-            return "Unlucky, compared to a simulation of your stats, you won " + (simWins-wins) + " less times.";
+            return "Unlucky, compared to a simulation of your win rate, you won " + (simWins-wins) + " less times.";
         }
         if (wins > simWins)
         {
-            return "Wow you are lucky, compared to a simulation of your stats, you won " + (wins-simWins) + " more times!";
+            return "Wow you are lucky, compared to a simulation of your win rate, you won " + (wins-simWins) + " more times!";
         }
         else
         {

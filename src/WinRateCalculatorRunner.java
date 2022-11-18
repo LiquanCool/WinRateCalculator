@@ -13,11 +13,11 @@ public class WinRateCalculatorRunner {
         String input = "";
         while(!input.equals("q"))
         {
-            System.out.println("What would you like me to do?\n" +
+            System.out.println("\nWhat would you like me to do?\n" +
                     "To calculate win rate, enter c\n" +
                     "To change wins or losses, enter either w or l\n\n" +
                     "To see your stats, enter t (calculate your win rate first!)\n" +
-                    "To simulate 100 games with your stats, enter s (requires win rate to be calculated first!)\n" +
+                    "To simulate 100 games with your win rate, enter s (requires win rate to be calculated first!)\n" +
                     "To estimate on average how many games you will win over x amount of games, enter a (requires win rate to be calculated first!)\n" +
                     "To stop the program, enter q");
             input = s.nextLine();
