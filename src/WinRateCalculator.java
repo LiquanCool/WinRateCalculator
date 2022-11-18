@@ -5,7 +5,7 @@ public class WinRateCalculator {
 
     private int wins;
     private int losses;
-    private double WinRate;
+    private double winRate;
     private int games;
 
     /**
@@ -53,15 +53,14 @@ public class WinRateCalculator {
         this.losses = losses;
         this.games = wins+losses;
     }
-
     /**
      *The updateWinRate method will change the win rate given the win rate to change to
      *
-     * @param WinRate represents the new win rate to change the stat to
+     * @param winRate represents the new win rate to change the stat to
      */
-    public void updateWinRate(double WinRate)
+    public void updateWinRate(double winRate)
     {
-        this.WinRate = WinRate;
+        this.winRate = winRate;
     }
 
     /**
@@ -71,8 +70,8 @@ public class WinRateCalculator {
      */
     public double calculateWinRate()
     {
-        double WinRate = ((double)((int)((((double)wins/(wins + losses))+.005)*100)))/100;
-        return WinRate;
+        double winRate = ((double)((int)((((double)wins/(wins + losses))+.005)*100)))/100;
+        return winRate;
     }
 
     /**
@@ -81,7 +80,7 @@ public class WinRateCalculator {
      */
     public int percentWinRate()
     {
-        return (int)(WinRate*100);
+        return (int)(winRate*100);
     }
 
     /**
@@ -93,7 +92,7 @@ public class WinRateCalculator {
         int simWins = 0;
         for (int counter = 1;counter <= games;counter++)
         {
-            if ((int)(Math.random()*100+1) <= WinRate*100)
+            if ((int)(Math.random()*100+1) <= winRate*100)
             {
                 simWins++;
             }
@@ -119,14 +118,18 @@ public class WinRateCalculator {
      */
     public String avgWinsOver(int games)
     {
-        int avgWins = (int)((games*WinRate)+0.5);
+        int avgWins = (int)((games*winRate)+0.5);
         int avgLosses = games - avgWins;
 
-        if (avgWins > avgLosses)
+        if (avgWins == avgLosses+1)
+        {
+            return "On average, you will win as many times as you will lose over the next " + games + " games.";
+        }
+        else if (avgWins > avgLosses)
         {
             return "On average, you will win " + (avgWins-avgLosses) + " times more than lose over the next " + games + " games.";
         }
-        if (avgLosses > avgWins)
+        else if (avgLosses > avgWins)
         {
             return "On average, you will lose " + (avgLosses-avgWins) + " times more than win over the next " + games + " games.";
         }
